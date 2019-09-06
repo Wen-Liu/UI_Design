@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="15dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:background="@drawable/shape_shadow"
-    android:clipChildren="true"
     android:elevation="2dp"
-    android:translationZ="3dp"
     android:orientation="vertical">
 
     <LinearLayout

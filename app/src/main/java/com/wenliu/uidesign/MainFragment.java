@@ -22,7 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "Wen-MainFragment";
     private View root;
     private ArrayList<String> images = new ArrayList<>();
@@ -45,6 +45,8 @@ public class MainFragment extends Fragment {
         images.add(3, "http://www.personal.psu.edu/jyc5774/jpg.jpg");
         images.add(4, "http://personal.psu.edu/xqz5228/jpg.jpg");
 
+        root.findViewById(R.id.add_btn).setOnClickListener(this);
+
         initRecyclerView();
 
 
@@ -62,12 +64,12 @@ public class MainFragment extends Fragment {
         mTabLayout = root.findViewById(R.id.tlTabTitle);
 
 //        mTabLayout.addTab(mTabLayout.newTab().setCustomView(R.layout.tab_main).setText(titles[0]).setTag(Constans.TAG_ANDROID));
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.tab_main, null);
-        TextView view1 = view.findViewById(R.id.tab_btn);
-        view1.setText(titles[0]);
-        TabLayout.Tab tab = mTabLayout.newTab().setCustomView(view);
+//        View view = LayoutInflater.from(getActivity()).inflate(R.layout.tab_main, null);
+//        TextView view1 = view.findViewById(R.id.tab_btn);
+//        view1.setText(titles[0]);
+//        TabLayout.Tab tab = mTabLayout.newTab().setCustomView(view);
 
-        mTabLayout.addTab(tab);
+        mTabLayout.addTab(mTabLayout.newTab().setText(titles[0]));
         mTabLayout.addTab(mTabLayout.newTab().setText(titles[1]));
         mTabLayout.addTab(mTabLayout.newTab().setText(titles[2]));
         mTabLayout.addTab(mTabLayout.newTab().setText(titles[3]));
@@ -77,7 +79,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onScrollChange(View view, int i, int i1, int i2, int i3) {
                 if (isScroll) {
-                    Log.i(TAG, "onScrollChange: " + i + " ," + i1 + " ," + i2 + " ," + i3);
+//                    Log.i(TAG, "onScrollChange: " + i + " ," + i1 + " ," + i2 + " ," + i3);
                     mTabLayout.setScrollPosition(mLayoutManager.findFirstVisibleItemPosition(), 0f, true);
                 }
             }
@@ -132,4 +134,11 @@ public class MainFragment extends Fragment {
 
         }
     };
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.add_btn) {
+            Log.i(TAG, "onClick: ");
+        }
+    }
 }

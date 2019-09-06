@@ -15,23 +15,4 @@
         android:layout_height="match_parent"
         app:navGraph="@navigation/main_navigation" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tlTabTitle"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="10dp"
-        app:tabIndicatorColor="@android:color/black"
-        app:tabMode="scrollable"
-        app:tabSelectedTextColor="@android:color/holo_red_dark" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:paddingHorizontal="32dp"
-        android:paddingBottom="16dp"
-        android:visibility="visible"></androidx.recyclerview.widget.RecyclerView>
-
-
 </LinearLayout>
