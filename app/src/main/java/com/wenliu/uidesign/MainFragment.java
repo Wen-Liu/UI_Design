@@ -25,7 +25,6 @@ import java.util.ArrayList;
 public class MainFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "Wen-MainFragment";
     private View root;
-    private ArrayList<String> images = new ArrayList<>();
     private String titles[] = new String[]{"AndroidAndroidAndroid", "IOS", "PHP", "Python", "Html"};
     private TabLayout mTabLayout;
     private RecyclerView mRecyclerView;
@@ -39,16 +38,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_main, container, false);
 
-        images.add(0, "http://personal.psu.edu/xqz5228/jpg.jpg");
-        images.add(1, "http://www.personal.psu.edu/jyc5774/jpg.jpg");
-        images.add(2, "http://personal.psu.edu/xqz5228/jpg.jpg");
-        images.add(3, "http://www.personal.psu.edu/jyc5774/jpg.jpg");
-        images.add(4, "http://personal.psu.edu/xqz5228/jpg.jpg");
-
         root.findViewById(R.id.add_btn).setOnClickListener(this);
-
         initRecyclerView();
-
 
         return root;
     }
@@ -56,7 +47,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
 
@@ -91,7 +81,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         mRecyclerView = root.findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(images);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(titles, new CameraViewCallback() {
+            @Override
+            public void onClickCamera(int position) {
+
+            }
+        });
         mRecyclerView.setAdapter(adapter);
         mPagerSnapHelper = new PagerSnapHelper();
         mPagerSnapHelper.attachToRecyclerView(mRecyclerView);
