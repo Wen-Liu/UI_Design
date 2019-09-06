@@ -5,21 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
-
-    <fragment
-        android:id="@+id/main_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:navGraph="@navigation/main_navigation" />
+    tools:context=".MainFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tlTabTitle"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginBottom="10dp"
         app:tabIndicatorColor="@android:color/black"
         app:tabMode="scrollable"
         app:tabSelectedTextColor="@android:color/holo_red_dark" />
@@ -32,6 +23,5 @@
         android:paddingHorizontal="32dp"
         android:paddingBottom="16dp"
         android:visibility="visible"></androidx.recyclerview.widget.RecyclerView>
-
 
 </LinearLayout>
